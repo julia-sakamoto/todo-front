@@ -1,5 +1,5 @@
 <template>
-  <div id="to-do-Form">
+  <div id="todo-form">
     <div class="container input-group form">
         <input type="text" class="form-control" id="input" placeholder="宿題を終わらせること" v-model="title"/>
         <button @click="addToApi" type="button" id="enterBtn" class="btn input-group-append">リストに追加</button>

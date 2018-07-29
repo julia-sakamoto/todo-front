@@ -1,5 +1,5 @@
 <template>
-  <div id="to-do-list">
+  <div id="todo-list">
       <ul class="container list">
         <li>{{status}} {{item}} - {{date}}</li>
       </ul>

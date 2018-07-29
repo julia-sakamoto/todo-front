@@ -8,8 +8,8 @@
 </template>
 
 <script>
-var ToDoForm = require('./components/to-doForm')
-var ToDoList = require('./components/to-doList')
+import ToDoForm from './components/to-doForm'
+import ToDoList from './components/to-doList'
 
 export default {
   name: 'App',

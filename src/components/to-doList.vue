@@ -17,7 +17,11 @@ export default {
     }
   },
   created () {
-    axios.get('https://todo-server-juliasakamoto.herokuapp.com/')
+    axios.get('https://todo-server-juliasakamoto.herokuapp.com/', {
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
+    })
       .then((res) => {
         this.item = res.data
       })

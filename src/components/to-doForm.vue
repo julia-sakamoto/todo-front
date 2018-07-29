@@ -20,7 +20,10 @@ export default {
   methods: {
     addToApi () {
       axios.post('https://todo-server-juliasakamoto.herokuapp.com/', {
-        Title: this.title
+        Title: this.title,
+        headers: {
+          'Access-Control-Allow-Origin': '*'
+        }
       })
         .then((res) => {
           console.log(res, 'Todo added')

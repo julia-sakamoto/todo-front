@@ -1,24 +1,29 @@
 <template>
   <div id="todo-list">
       <ul class="container list">
-        <li>{{status}} {{item}} - {{date}}</li>
+        <li>{{item.status}} {{item.title}} - {{item.date}}</li>
       </ul>
   </div>
 </template>
 
 <script>
+const axios = require('axios')
+
 export default {
   name: 'ToDoList',
-  methods: {
-    status () {
-      return 'n'
-    },
-    item () {
-      return 'n'
-    },
-    date () {
-      return 'n'
+  data () {
+    return {
+      item: []
     }
+  },
+  created () {
+    axios.get('https://todo-server-juliasakamoto.herokuapp.com/')
+      .then((res) => {
+        this.item = res.data
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
 }
 </script>

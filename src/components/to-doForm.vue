@@ -8,16 +8,26 @@
 </template>
 
 <script>
+const axios = require('axios')
+
 export default {
   name: 'ToDoForm',
   data () {
     return {
-      title: ''
+      title: 'temp'
     }
   },
   methods: {
     addToApi () {
-      console.log('nothing yet')
+      axios.post('https://todo-server-juliasakamoto.herokuapp.com/', {
+        Title: this.title
+      })
+        .then((res) => {
+          console.log(res, 'Todo added')
+        })
+        .catch((err) => {
+          console.log(err, 'Todo failed to add')
+        })
     }
   }
 }

@@ -10,7 +10,13 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: ({
+      'server': {
+        "target": 'https://todo-server-juliasakamoto.herokuapp.com',
+        "changeOrigin": true,
+        "secure": false
+      }
+    }),
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

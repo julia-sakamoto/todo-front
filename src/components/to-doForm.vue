@@ -1,8 +1,9 @@
 <template>
   <div id="todo-form">
     <div class="container input-group form">
-        <input type="text" class="form-control" id="input" placeholder="宿題を終わらせること" v-model="title"/>
-        <button @click="addToApi" type="button" id="enterBtn" class="btn input-group-append">リストに追加</button>
+      <input type="text" class="form-control" id="input" placeholder="宿題を終わらせること" v-model="title"/>
+      <button @click="addToApi" type="button" id="enterBtn" class="btn input-group-append">リストに追加</button><br>
+      <p v-if="isAdded">To-doが更新されました！F5を押してください。</p><br>
     </div>
   </div>
 </template>
@@ -14,23 +15,23 @@ export default {
   name: 'ToDoForm',
   data () {
     return {
-      title: 'temp'
+      title: '',
+      isAdded: false
     }
   },
   methods: {
     addToApi () {
-      axios.post('https://todo-server-juliasakamoto.herokuapp.com/', {
-        Title: this.title,
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        }
+      axios.post('https://todo-server-juliasakamoto.herokuapp.com/api/todos', {
+        Title: this.title
       })
         .then((res) => {
-          console.log(res, 'Todo added')
+          console.log('Todo added', res)
         })
         .catch((err) => {
-          console.log(err, 'Todo failed to add')
+          console.log('Todo failed to add', err)
         })
+
+      this.isAdded = true
     }
   }
 }

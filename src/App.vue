@@ -28,5 +28,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background: rgba(255,255,255,0.7);
+}
+body {
+  background-image: url('./assets/colors.jpg')
+}
+.btn {
+  background-color:white;
 }
 </style>

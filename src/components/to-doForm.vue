@@ -1,10 +1,10 @@
 <template>
   <div id="todo-form">
     <div class="container input-group form">
-      <input type="text" class="form-control" id="input" placeholder="宿題を終わらせること" v-model="title"/>
+      <input type="text" class="form-control" id="input" placeholder="宿題を終わらせること" v-model="title" @keydown.enter="addToApi" />
       <button @click="addToApi" type="button" id="enterBtn" class="btn input-group-append">リストに追加</button><br>
-      <p v-if="isAdded">To-doが更新されました！F5を押してください。</p><br>
     </div>
+    <p v-if="isAdded">リストが更新されました！F5を押してください。</p><br>
   </div>
 </template>
 
